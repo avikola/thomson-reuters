@@ -10,6 +10,11 @@ type Props = { countries: Country[]; sort: SortType; onSort: (newSort: SortType)
 function MedalsTable({ countries, sort, onSort }: Props) {
 	const buttonMap: SortType[] = ["gold", "silver", "bronze", "total"];
 
+	// get a alphabetically sorted index map for country codes
+	const sortedCountryCodes = countries
+		.sort((countryA, countryB) => countryA.code.localeCompare(countryB.code))
+		.map((country) => country.code);
+
 	return (
 		<table className="fill">
 			<thead>
@@ -35,7 +40,20 @@ function MedalsTable({ countries, sort, onSort }: Props) {
 				{countries.map((country, index) => (
 					<tr key={country.code} className="body-row">
 						<td>{index + 1}</td>
-						<td>Flag</td>
+						<td>
+							<div className="center">
+								<div
+									className="flag"
+									style={{
+										backgroundPosition: `0 -${
+											sortedCountryCodes.findIndex(
+												(item) => item === country.code
+											) * 17
+										}px`,
+									}}
+								/>
+							</div>
+						</td>
 						<td>{country.code}</td>
 						<td>{country.gold}</td>
 						<td>{country.silver}</td>

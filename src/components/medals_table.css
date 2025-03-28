@@ -45,3 +45,12 @@
 .bronze div {
 	background-color: sienna;
 }
+
+.flag {
+	background-image: url(/images/flags.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	width: 28;
+	height: 17;
+}
