@@ -46,7 +46,7 @@ export default function Home() {
 	if (loading)
 		return (
 			<div className="container">
-				<main className="fill">
+				<main className="fill center loading">
 					<span>Loading...</span>
 				</main>
 			</div>
@@ -56,7 +56,7 @@ export default function Home() {
 	if (error)
 		return (
 			<div className="container">
-				<main className="fill">{error}</main>
+				<main className="fill center error">{error}</main>
 			</div>
 		);
 

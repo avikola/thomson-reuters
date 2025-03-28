@@ -11,5 +11,11 @@
 	align-items: center;
 }
 
-main {
+.loading {
+	font-size: 20px;
+}
+
+.error {
+	color: #ff5656;
+	font-size: 20px;
 }
