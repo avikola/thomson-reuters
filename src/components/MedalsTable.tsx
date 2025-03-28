@@ -1,38 +1,36 @@
-import { Country } from "@/types/medal_types";
+import { Country, SortType } from "@/types/medal_types";
 
 import "./medals_table.css";
 
-type Props = { countries: Country[] };
+type Props = { countries: Country[]; sort: SortType; onSort: (newSort: SortType) => void };
 
-function MedalsTable({ countries }: Props) {
+/**
+ * Sortable Table of Medals
+ */
+function MedalsTable({ countries, sort, onSort }: Props) {
+	const buttonMap: SortType[] = ["gold", "silver", "bronze", "total"];
+
 	return (
-		<table className="medals-table fill">
+		<table className="fill">
 			<thead>
 				<tr className="header-row">
+					<th>#</th>
 					<th></th>
-					<th></th>
-					<th></th>
-					<th className="gold">
-						<div>
-							<div />
-							Gold
-						</div>
-					</th>
-					<th className="silver">
-						<div>
-							<div />
-							Silver
-						</div>
-					</th>
-					<th className="bronze">
-						<div>
-							<div />
-							Bronze
-						</div>
-					</th>
-					<th>Total</th>
+					<th>Country</th>
+					{buttonMap.map((buttonType, index) => (
+						<th className={buttonType} key={buttonType}>
+							<SortButton
+								onClick={() => onSort(buttonType)}
+								showSorter={sort === buttonType}
+							>
+								{index < 3 && <div />}
+								{buttonType.toUpperCase()}
+							</SortButton>
+						</th>
+					))}
 				</tr>
 			</thead>
+
 			<tbody>
 				{countries.map((country, index) => (
 					<tr key={country.code} className="body-row">
@@ -42,7 +40,7 @@ function MedalsTable({ countries }: Props) {
 						<td>{country.gold}</td>
 						<td>{country.silver}</td>
 						<td>{country.bronze}</td>
-						<td>{country.gold + country.silver + country.bronze}</td>
+						<td>{country.total}</td>
 					</tr>
 				))}
 			</tbody>
@@ -51,3 +49,20 @@ function MedalsTable({ countries }: Props) {
 }
 
 export default MedalsTable;
+
+const SortButton = ({
+	onClick,
+	showSorter,
+	children,
+}: {
+	onClick: () => void;
+	showSorter: boolean;
+	children: React.ReactNode;
+}) => {
+	return (
+		<button className="sort-button" type="button" onClick={onClick}>
+			{children}
+			{showSorter && <span aria-hidden="true">▽</span>}
+		</button>
+	);
+};

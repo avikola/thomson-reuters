@@ -1,10 +1,6 @@
-.medals-table {
-}
-
 .header-row {
 	th {
 		background-color: #66666655;
-		padding: 14px 4px;
 	}
 }
 
@@ -17,33 +13,35 @@
 	}
 }
 
-.gold div,
-.silver div,
-.bronze div {
+.sort-button,
+.sort-button,
+.sort-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	column-gap: 12px;
 
-	padding-right: 12px;
+	padding: 14px 4px;
+	width: 100%;
+	cursor: pointer;
 }
 
-.gold div div,
-.silver div div,
-.bronze div div {
+.sort-button div,
+.sort-button div,
+.sort-button div {
 	aspect-ratio: 1 / 1;
-	height: 18px;
+	height: 14px;
 	border-radius: 100px;
 }
 
-.gold div div {
+.gold div {
 	background-color: gold;
 }
 
-.silver div div {
+.silver div {
 	background-color: silver;
 }
 
-.bronze div div {
+.bronze div {
 	background-color: sienna;
 }

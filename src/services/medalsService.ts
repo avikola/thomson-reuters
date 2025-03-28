@@ -1,8 +1,9 @@
 import { CountryMedalsResponse } from "@/types/medal_types";
 
 /**
+ * Fetch Medal Data from "API"
  *
- * @returns Promise with countries' medal data response
+ * @returns Promise with countries' medal data
  * @throws {Error} "API Error" when API fails
  */
 export const getCountryMedalData = async (): Promise<CountryMedalsResponse> => {
