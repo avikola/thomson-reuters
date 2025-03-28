@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import { Country } from "@/types/medal_types";
 
 import { getCountryMedalData } from "@/services/medalsService";
+
+import "./page.css";
+
 import MedalsTable from "@/components/MedalsTable";
 
 /**
@@ -42,8 +45,8 @@ export default function Home() {
 	// Handle loading display
 	if (loading)
 		return (
-			<div className="">
-				<main className="">
+			<div className="container">
+				<main className="fill">
 					<span>Loading...</span>
 				</main>
 			</div>
@@ -52,14 +55,14 @@ export default function Home() {
 	// Handle error display
 	if (error)
 		return (
-			<div className="">
-				<main className="">{error}</main>
+			<div className="container">
+				<main className="fill">{error}</main>
 			</div>
 		);
 
 	return (
-		<div className="">
-			<main className="">
+		<div className="container">
+			<main className="fill">
 				<MedalsTable countries={countries} />
 			</main>
 		</div>

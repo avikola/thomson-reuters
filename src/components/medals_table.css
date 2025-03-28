@@ -1,0 +1,49 @@
+.medals-table {
+}
+
+.header-row {
+	th {
+		background-color: #66666655;
+		padding: 14px 4px;
+	}
+}
+
+.body-row {
+	td {
+		background-color: #3a3a3a55;
+
+		text-align: center;
+		padding: 14px 10px;
+	}
+}
+
+.gold div,
+.silver div,
+.bronze div {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 12px;
+
+	padding-right: 12px;
+}
+
+.gold div div,
+.silver div div,
+.bronze div div {
+	aspect-ratio: 1 / 1;
+	height: 18px;
+	border-radius: 100px;
+}
+
+.gold div div {
+	background-color: gold;
+}
+
+.silver div div {
+	background-color: silver;
+}
+
+.bronze div div {
+	background-color: sienna;
+}
