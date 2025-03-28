@@ -11,7 +11,7 @@ function MedalsTable({ countries, sort, onSort }: Props) {
 	const buttonMap: SortType[] = ["gold", "silver", "bronze", "total"];
 
 	// get a alphabetically sorted index map for country codes
-	const sortedCountryCodes = countries
+	const sortedCountryCodes = [...countries]
 		.sort((countryA, countryB) => countryA.code.localeCompare(countryB.code))
 		.map((country) => country.code);
 
